@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Administrador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #000000; --bg-panel: #111111; --text-light: #ffffff; --text-muted-custom: #888888; --accent-neon: #ccff00; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Helvetica Neue', Arial, sans-serif; }
+        .sidebar { height: 100vh; background-color: var(--bg-panel); border-right: 1px solid #222; }
+        .nav-link-admin { color: var(--text-muted-custom); padding: 15px 25px; display: block; text-decoration: none; border-left: 3px solid transparent; }
+        .nav-link-admin:hover, .nav-link-admin.active { color: var(--accent-neon); background: #1a1a1a; border-left-color: var(--accent-neon); }
+        .card-admin { background-color: var(--bg-panel); border: 1px solid #222; border-radius: 0; }
+        .table-dark-custom { color: white; background-color: var(--bg-panel); }
+        .btn-neon { background-color: var(--accent-neon); color: black; font-weight: bold; border-radius: 0; }
+        .text-neon { color: var(--accent-neon); }
+    </style>
+</head>
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-2 p-0 sidebar">
+                <div class="p-4 border-bottom border-dark">
+                    <h5 class="fw-bold mb-0 text-neon">MODO ADMIN</h5>
+                </div>
+                <div class="mt-4">
+                    <a href="index.html" class="nav-link-admin">🏠 Ir a la Tienda</a>
+                    <a href="#" class="nav-link-admin active">📦 Inventario</a>
+                    <a href="#" class="nav-link-admin">📧 Mensajes Contacto</a>
+                    <a href="#" class="nav-link-admin">👤 Usuarios Registrados</a>
+                    <a href="#" class="nav-link-admin text-danger mt-5" onclick="localStorage.clear(); window.location.href='index.html'">Cerrar Sesión</a>
+                </div>
+            </div>
+
+            <div class="col-md-9 col-lg-10 p-5">
+                <div class="d-flex justify-content-between align-items-center mb-5">
+                    <h2 class="fw-bold text-uppercase">Panel de Visualización</h2>
+                    <button class="btn btn-neon px-4">+ Agregar Producto</button>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-12">
+                        <div class="card card-admin p-4">
+                            <h5 class="fw-bold mb-4">Inventario de Productos</h5>
+                            <div class="table-responsive">
+                                <table class="table table-dark table-hover align-middle">
+                                    <thead>
+                                        <tr class="text-muted-custom">
+                                            <th>ID</th>
+                                            <th>Imagen</th>
+                                            <th>Producto</th>
+                                            <th>Precio</th>
+                                            <th>Oferta</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>#001</td>
+                                            <td><img src="imgs/zapa.png" width="40" class="border border-secondary"></td>
+                                            <td>Zapatillas Urbanas</td>
+                                            <td>$45.00</td>
+                                            <td><span class="badge bg-dark text-neon">Sin oferta</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-light me-2">Editar</button>
+                                                <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>#002</td>
+                                            <td><img src="imgs/sony.png" width="40" class="border border-secondary"></td>
+                                            <td>Auriculares Bluetooth</td>
+                                            <td>$89.90</td>
+                                            <td><span class="badge bg-danger">20% OFF</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-light me-2">Editar</button>
+                                                <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card card-admin p-4">
+                            <h5 class="fw-bold mb-4">Últimos Mensajes (Contacto)</h5>
+                            <div class="list-group list-group-flush">
+                                <div class="list-group-item bg-transparent text-white border-secondary px-0">
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-neon">Juan Pérez</small>
+                                        <small class="text-muted">Hace 2 horas</small>
+                                    </div>
+                                    <p class="small mb-0">"Tengo problemas con el envío de mi pedido #456..."</p>
+                                </div>
+                                <div class="list-group-item bg-transparent text-white border-secondary px-0">
+                                    <div class="d-flex justify-content-between">
+                                        <small class="text-neon">Maria Lopez</small>
+                                        <small class="text-muted">Ayer</small>
+                                    </div>
+                                    <p class="small mb-0">"¿Cuándo llegará stock de las zapatillas blancas?"</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="card card-admin p-4">
+                            <h5 class="fw-bold mb-4">Usuarios Nuevos</h5>
+                            <ul class="list-unstyled">
+                                <li class="mb-3 d-flex align-items-center">
+                                    <div class="rounded-circle bg-secondary me-3" style="width: 35px; height: 35px;"></div>
+                                    <div>
+                                        <p class="mb-0 small">carlos.mateo@gmail.com</p>
+                                        <small class="text-muted">Registrado: 12/04/2026</small>
+                                    </div>
+                                </li>
+                                <li class="d-flex align-items-center">
+                                    <div class="rounded-circle bg-secondary me-3" style="width: 35px; height: 35px;"></div>
+                                    <div>
+                                        <p class="mb-0 small">admin@admin.com</p>
+                                        <small class="text-neon">Administrador</small>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

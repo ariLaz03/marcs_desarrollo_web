@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagar - Luxury Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #000000; --bg-panel: #111111; --text-light: #ffffff; --text-muted-custom: #888888; --accent-neon: #ccff00; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        .navbar-top { background-color: var(--bg-dark); border-bottom: 1px solid #222; }
+        .navbar-brand { letter-spacing: 2px; }
+        .card-dark { background-color: var(--bg-panel); border: 1px solid #222; border-radius: 0; }
+        .form-control-dark, .form-select-dark { background-color: var(--bg-dark); border: 1px solid #333; color: var(--text-light); border-radius: 0; }
+        .form-control-dark:focus, .form-select-dark:focus { background-color: var(--bg-panel); color: var(--text-light); border-color: var(--text-light); box-shadow: none; }
+        .btn-custom-white { background-color: #ffffff; color: #000000; border: none; border-radius: 0; letter-spacing: 1px; transition: background-color 0.2s; }
+        .btn-custom-white:hover { background-color: #e0e0e0; }
+        .text-neon { color: var(--accent-neon) !important; }
+        .section-divider { width: 40px; height: 2px; background-color: var(--accent-neon); margin: 0 0 20px 0; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div class="navbar-top py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-white fw-bold fs-3" href="index.html">ZENTRA_STORE</a>
+            <span class="text-muted-custom fw-bold">PAGO SEGURO 🔒</span>
+        </div>
+    </div>
+
+    <div class="container my-5 flex-grow-1">
+        <h2 class="fw-bold text-uppercase mb-3">Tu Carrito</h2>
+        <div class="section-divider"></div>
+        
+        <div class="row g-5 mt-2">
+            <div class="col-lg-7">
+                <div class="card card-dark p-4 mb-4">
+                    <h5 class="fw-bold mb-4">Artículos (1)</h5>
+                    <div class="d-flex align-items-center border-bottom border-secondary pb-3 mb-3">
+                        <img src="imgs/zapa.png" alt="Zapatillas" style="width: 100px; height: 100px; object-fit: cover;" class="border border-secondary">
+                        <div class="ms-4 flex-grow-1">
+                            <h6 class="fw-bold text-uppercase mb-1">Zapatillas Urbanas</h6>
+                            <p class="text-muted-custom small mb-0">Talla: 42 | Color: Blanco</p>
+                        </div>
+                        <div class="text-end">
+                            <h5 class="fw-bold text-light mb-0">$45.00</h5>
+                            <a href="#" class="text-danger small text-decoration-none">Eliminar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-5">
+                <div class="card card-dark p-4">
+                    <h5 class="fw-bold mb-4">Resumen del pedido</h5>
+                    
+                    <div class="d-flex justify-content-between mb-2 small text-muted-custom">
+                        <span>Subtotal</span>
+                        <span>$45.00</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-3 small text-muted-custom">
+                        <span>Envío estimado</span>
+                        <span>Gratis</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-4 pb-3 border-bottom border-secondary">
+                        <span class="fw-bold fs-5">Total</span>
+                        <span class="fw-bold fs-5 text-neon">$45.00</span>
+                    </div>
+
+                    <h6 class="fw-bold mb-3 mt-2">Método de pago</h6>
+                    <form onsubmit="event.preventDefault(); alert('¡Pago procesado con éxito! Gracias por tu compra.'); window.location.href='index.html';">
+                        <div class="mb-3">
+                            <select class="form-select form-select-dark py-2" required>
+                                <option value="" selected disabled hidden>Selecciona tu tarjeta...</option>
+                                <option value="1">Visa termina en 4567</option>
+                                <option value="2">Mastercard termina en 1234</option>
+                                <option value="3">Agregar nueva tarjeta...</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-custom-white w-100 py-3 fw-bold text-uppercase mt-3">Finalizar Compra</button>
+                    </form>
+                    <div class="text-center mt-4">
+                        <a href="productos.html" class="text-muted-custom text-decoration-none small border-bottom border-secondary">Seguir comprando</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-muted-custom text-center py-4 border-top border-dark mt-auto">
+        <p class="mb-0 small">&copy; 2026 ZENTRA_STORE. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - ZENTRA_STORE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root { --bg-dark: #000000; --bg-panel: #111111; --text-light: #ffffff; --text-muted-custom: #888888; --accent-neon: #ccff00; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+        .navbar-top { background-color: var(--bg-dark); border-bottom: 1px solid #222; }
+        .navbar-brand { letter-spacing: 2px; }
+        .search-input { background: transparent; border: none; border-bottom: 1px solid #444; color: var(--text-light); border-radius: 0; padding-left: 0; }
+        .search-input:focus { background: transparent; color: var(--text-light); box-shadow: none; border-color: var(--text-light); }
+        .nav-categories a { color: var(--text-light); text-decoration: none; font-size: 0.9rem; text-transform: capitalize; }
+        .nav-categories a:hover { color: var(--text-muted-custom); }
+        .modal-content { background-color: var(--bg-panel); color: var(--text-light); border: 1px solid #333; border-radius: 0; }
+        .modal-header { border-bottom: 1px solid #333; }
+        .btn-close { filter: invert(1); }
+        .form-control-dark { background-color: var(--bg-dark); border: 1px solid #333; color: var(--text-light); border-radius: 0; }
+        .text-neon { color: var(--accent-neon) !important; }
+        .btn-custom-white { background-color: #ffffff; color: #000000; border: none; border-radius: 0; letter-spacing: 1px; transition: background-color 0.2s; }
+        .banner-estacion { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: center; background-size: cover; background-position: center; position: relative; }
+        .banner-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1; }
+        .banner-content { z-index: 2; }
+    </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+    <div class="navbar-top py-3">
+        <div class="container d-flex flex-wrap justify-content-between align-items-center">
+            <a class="navbar-brand text-white fw-bold fs-3 mb-2 mb-md-0" href="index.html">ZENTRA_STORE</a>
+            <div class="d-none d-md-flex flex-grow-1 mx-5">
+                <input type="text" class="form-control search-input w-100" placeholder="Buscar por producto o marca">
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <div id="user-greeting" class="d-none d-sm-flex gap-3 small align-items-center">
+                    <a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</a>
+                    <a href="#" class="text-white text-decoration-none" data-bs-toggle="modal" data-bs-target="#registroModal">Regístrate</a>
+                </div>
+                <div class="d-flex gap-4 fs-5 align-items-center">
+                    <a href="#" class="text-white text-decoration-none" id="icono-persona" data-bs-toggle="modal" data-bs-target="#loginModal" title="Cuenta">👤</a>
+                    <a href="contacto.html" class="text-white text-decoration-none" title="Contacto">🤍</a>
+                    <a href="historial.html" class="text-white text-decoration-none" title="Mis Compras">🛍️</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-dark py-2 border-bottom border-dark">
+        <div class="container">
+            <ul class="nav d-flex align-items-center gap-4 nav-categories">
+                <li class="nav-item"><a class="nav-link px-0 fw-bold text-white" style="border-bottom: 2px solid white;" href="index.html">Inicio</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="productos.html">Productos</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="ofertas.html">Ofertas</a></li>
+                <li class="nav-item"><a class="nav-link px-0 text-white" href="contacto.html">Contacto</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="heroCarousel" class="carousel slide flex-grow-1" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="banner-estacion" style="background-image: url('imgs/bc.jpg');">
+                    <div class="banner-overlay" style="background: rgba(0, 0, 0, 0.4);"></div>
+                    <div class="banner-content text-center container">
+                        <h1 class="fw-bold mb-2 text-white" style="font-size: 3.5rem;">Nuevos Ingresos</h1>
+                        <p class="fs-5 mb-4 opacity-75 text-white">Descubre la nueva colección</p>
+                        <a href="productos.html" class="btn btn-custom-white px-5 py-2 fw-bold text-uppercase">Comprar ahora</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-estacion" style="background-image: url('imgs/sony.png');">
+                    <div class="banner-overlay" style="background: rgba(0, 0, 0, 0.7);"></div>
+                    <div class="banner-content text-center container">
+                        <h1 class="fw-bold mb-2 text-neon" style="font-size: 3.5rem;">Tecnología</h1>
+                        <p class="fs-5 mb-4 opacity-75 text-white">El mejor sonido envolvente</p>
+                        <a href="productos.html" class="btn btn-custom-white px-5 py-2 fw-bold text-uppercase">Ver más</a>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="banner-estacion" style="background-image: url('imgs/zapa.png'); background-position: center;">
+                    <div class="banner-overlay" style="background: rgba(0, 0, 0, 0.6);"></div>
+                    <div class="banner-content text-center container">
+                        <h1 class="fw-bold mb-2 text-white" style="font-size: 3.5rem;">Estilo Urbano</h1>
+                        <p class="fs-5 mb-4 opacity-75 text-white">Comodidad y estilo urbano</p>
+                        <a href="ofertas.html" class="btn btn-custom-white px-5 py-2 fw-bold text-uppercase">Ver Ofertas</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+
+    <div class="modal fade" id="registroModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header px-4 pt-4 border-0">
+                    <h4 class="modal-title fw-bold text-center w-100">Crea una cuenta</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body px-4 pb-4 pt-2">
+                    <form onsubmit="event.preventDefault(); localStorage.setItem('usuarioNombre', document.getElementById('reg-nombre').value); alert('¡Registro exitoso! Ya puedes iniciar sesión.'); bootstrap.Modal.getInstance(document.getElementById('registroModal')).hide();">
+                        <div class="mb-3">
+                            <label class="form-label text-muted-custom small fw-bold">Nombre completo</label>
+                            <input type="text" class="form-control form-control-dark" id="reg-nombre" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label text-muted-custom small fw-bold">Correo electrónico</label>
+                            <input type="email" class="form-control form-control-dark" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-muted-custom small fw-bold">Contraseña</label>
+                            <input type="password" class="form-control form-control-dark" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom-white w-100 mb-4 py-2 fw-bold">Registrarse</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content shadow-lg">
+                <div class="modal-header px-4 pt-4 border-0">
+                    <h4 class="modal-title fw-bold text-center w-100">Iniciar sesión</h4>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body px-4 pb-4 pt-2">
+                    <form id="form-login-simulado">
+                        <div class="mb-3">
+                            <label class="form-label text-muted-custom small fw-bold">Correo electrónico</label>
+                            <input type="email" class="form-control form-control-dark" id="input-correo" placeholder="admin@admin.com para Admin" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label text-muted-custom small fw-bold">Contraseña</label>
+                            <input type="password" class="form-control form-control-dark" required>
+                        </div>
+                        <button type="submit" class="btn btn-custom-white w-100 mb-4 py-2 fw-bold">Iniciar sesión</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-black text-muted-custom text-center py-4 border-top border-dark mt-auto">
+        <p class="mb-0 small">&copy; 2026 ZENTRA_STORE. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('form-login-simulado');
+            const navCategories = document.querySelector('.nav-categories');
+            const userGreeting = document.getElementById('user-greeting');
+            const iconoPersona = document.getElementById('icono-persona');
+            
+            const estaLogeado = localStorage.getItem('usuarioLogeado');
+            const rol = localStorage.getItem('rol');
+            const nombre = localStorage.getItem('usuarioNombre') || 'Usuario';
+
+            if (estaLogeado === 'si') {
+                if (userGreeting) {
+                    if (rol === 'admin') {
+                        userGreeting.innerHTML = `<span class="text-neon fw-bold">¡Bienvenido administrador ${nombre}!</span>`;
+                    } else {
+                        userGreeting.innerHTML = `<span class="text-white fw-bold">¡Bienvenido ${nombre}!</span>`;
+                    }
+                }
+                
+                if(iconoPersona) {
+                    iconoPersona.removeAttribute('data-bs-toggle');
+                    iconoPersona.removeAttribute('data-bs-target');
+                    iconoPersona.title = "Cerrar sesión";
+                    iconoPersona.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        if(confirm('¿Deseas cerrar sesión?')) {
+                            localStorage.removeItem('usuarioLogeado');
+                            localStorage.removeItem('rol');
+                            localStorage.removeItem('usuarioNombre');
+                            window.location.reload();
+                        }
+                    });
+                }
+            }
+
+            if (rol === 'admin' && navCategories) {
+                const adminLi = document.createElement('li');
+                adminLi.className = 'nav-item ms-md-4';
+                adminLi.innerHTML = `<a class="nav-link px-0 text-white fw-bold" href="admin.html">Visualizar</a>`;
+                navCategories.appendChild(adminLi);
+            }
+
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const correo = document.getElementById('input-correo').value;
+                    
+                    localStorage.setItem('usuarioLogeado', 'si');
+                    
+                    if (correo === 'admin@admin.com') {
+                        localStorage.setItem('rol', 'admin');
+                        localStorage.setItem('usuarioNombre', 'Admin');
+                    } else {
+                        localStorage.setItem('rol', 'cliente');
+                        if(!localStorage.getItem('usuarioNombre')) {
+                            localStorage.setItem('usuarioNombre', 'Cliente');
+                        }
+                    }
+                    window.location.reload();
+                });
+            }
+        });
+    </script>
+</body>
+</html>
